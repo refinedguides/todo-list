@@ -8,19 +8,21 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  padding: 2rem;
   background: #f4f6fd;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 h1 {
   color: #020417;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-block: 1.5rem;
 }
 
 .container {
   max-width: 400px;
-  margin: auto;
+  margin-inline: auto;
 }
 
 .todo-form {
@@ -34,6 +36,7 @@ h1 {
 }
 
 .todo-form input {
+  width: 100%;
   flex: 1;
   padding: 8px 16px;
   font-size: 1.25rem;
@@ -81,22 +84,27 @@ h1 {
 }
 
 .todo-item .remove-button {
+  border: none;
+  background: transparent;
   width: 24px;
   height: 24px;
-  fill: none;
   cursor: pointer;
-  stroke: red;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
   display: none;
+  color: red;
+}
+
+/* Show remove button on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .todo-item .remove-button {
+    display: block;
+  }
 }
 
 .todo-item:hover .remove-button {
   display: block;
 }
 
-.todo-item.completed span {
+.todo-item input[type="checkbox"]:checked + span {
   text-decoration: line-through;
   color: #9d9ab4;
 }
